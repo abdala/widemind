@@ -1,0 +1,119 @@
+10
+
+dir
+0
+https://svn.webservidor.net/rs22605-preceptoread/report/trunk/library/Zend/Service/DeveloperGarden/Wsdl
+https://svn.webservidor.net/rs22605-preceptoread
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+b4c260d5-4b54-4cfa-9694-bc14fe182950
+
+VoiceButlerService.xsd
+file
+
+
+
+add
+
+ODGBaseUserService.xsd
+file
+
+
+
+add
+
+ccsPort.wsdl
+file
+
+
+
+add
+
+SmsValidationUserService.wsdl
+file
+
+
+
+add
+
+localsearch.wsdl
+file
+
+
+
+add
+
+IPLocation.wsdl
+file
+
+
+
+add
+
+TokenService.wsdl
+file
+
+
+
+add
+
+ccsPort.xsd
+file
+
+
+
+add
+
+SmsService.wsdl
+file
+
+
+
+add
+
+ODGBaseUserService.wsdl
+file
+
+
+
+add
+
+VoiceButlerService.wsdl
+file
+
+
+
+add
+
+localsearch.xsd
+file
+
+
+
+add
+
+IPLocation.xsd
+file
+
+
+
+add
+

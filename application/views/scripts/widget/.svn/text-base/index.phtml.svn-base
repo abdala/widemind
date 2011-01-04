@@ -1,0 +1,26 @@
+<div class="widget">
+    <div id="items">
+        <ol>
+            <?php foreach ($this->itens as $item):?>
+                <li>
+                    <a href="widget/save/id/<?php echo $item->id; ?>">
+                        <?php echo $item->name; ?>
+                    </a>
+                </li>
+            <?php endforeach;?>
+        </ol>
+    </div>
+    <div class="area"></div>
+</div>
+<script>
+    $('.delete').click(function(){
+        if(!confirm('<?php echo $this->translate('Deseja realmente excluir?');?>')){
+            return false;
+        }
+    });
+    <?php foreach ($this->data as $data):?>
+        $.get('widget/view/id/<?php echo $data->report_id?>/widget/<?php echo $data->id?>',function(response){
+            $('.area').append(response);
+        },'text');
+    <?php endforeach;?>
+</script>

@@ -1,0 +1,14 @@
+<?php
+class ErrorController extends Zend_Controller_Action
+{
+	public function errorAction()
+	{
+		include( 'backtrace.php' );
+
+		$e = $this->_getParam('error_handler')->exception;
+		$oTrace = new BackTrace( $e->getTrace() );
+		echo $e->getMessage();
+		echo $oTrace->explain();
+		exit;
+	}
+}

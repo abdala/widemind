@@ -1,0 +1,127 @@
+<?php
+class IndexController extends Zend_Controller_Action {
+    public function indexAction() {
+        $report = new Default_Model_Builder();
+        $report->clear();
+
+        $this->view->tables = $report->listTables();
+    }
+
+    public function fieldAction() {
+        $report = new Default_Model_Builder();
+        $report->clear();
+
+        $schema = $this->_getParam('schema');
+        $table = $this->_getParam('table');
+
+        $this->view->fields = $report->getColunms($schema, $table);
+        $this->view->tables = $report->getRelationTables($schema, $table);
+
+        $this->_helper->layout->disableLayout();
+    }
+
+    public function moreAction() {
+        $report = new Default_Model_Builder();
+        $info   = Zend_Json::decode($this->_getParam('info'));
+        $schema = $info['schema'];
+        $table  = $info['table'];
+
+        $report->addJoin($info);
+
+        $this->view->fields = $report->getColunms($schema , $table);
+        $this->view->tables = $report->getRelationTables($schema , $table);
+
+        $this->_helper->layout->disableLayout();
+    }
+
+    public function listAction() {
+        $report = new Default_Model_Builder();
+        $info   = Zend_Json::decode($this->_getParam('info'));
+        $page   = Zend_Filter::filterStatic($this->_getParam( "page" ), "int");
+
+        if ($info) {
+            $report->add($info);
+        }
+
+        $this->view->rs		= $report->fetchAll($page);
+        $this->view->colunms    = $report->getSelectedColunms();
+        $this->view->orders	= $report->getOrders();
+        $this->view->filters    = $report->getFilters();
+        $this->view->aggregates = $report->getAggregates();
+
+        $this->_helper->layout->disableLayout();
+    }
+
+    public function orderAction() {
+        $report    = new Default_Model_Builder();
+        $colunm    = $this->_getParam('colunm');
+        $direction = $this->_getParam('direction');
+        $add       = $this->_getParam('add');
+        $page      = Zend_Filter::filterStatic($this->_getParam('page'), 'int');
+
+        $report->addOrder($colunm, $direction, $add);
+
+        $this->view->rs		= $report->fetchAll($page);
+        $this->view->colunms    = $report->getSelectedColunms();
+        $this->view->orders	= $report->getOrders();
+        $this->view->filters    = $report->getFilters();
+        $this->view->aggregates = $report->getAggregates();
+
+        $this->_helper->layout->disableLayout();
+        $this->render('list');
+    }
+
+    public function filterAction() {
+        $report   = new Default_Model_Builder();
+        $colunm   = $this->_getParam('colunm');
+        $value    = $this->_getParam('value');
+        $operator = $this->_getParam('operator');
+        $logic    = $this->_getParam('logic');
+        $page     = Zend_Filter::filterStatic($this->_getParam('page'), 'int');
+
+        $report->addFilter($colunm, $value, $operator, $logic);
+
+        $this->view->rs		= $report->fetchAll($page);
+        $this->view->colunms    = $report->getSelectedColunms();
+        $this->view->orders	= $report->getOrders();
+        $this->view->filters    = $report->getFilters();
+        $this->view->aggregates = $report->getAggregates();
+
+        $this->_helper->layout->disableLayout();
+        $this->render('list');
+    }
+
+    public function aggregateAction() {
+        $report   = new Default_Model_Builder();
+        $colunm   = $this->_getParam('colunm');
+        $page   = Zend_Filter::filterStatic($this->_getParam('page'), 'int');
+
+        $report->addAggregate($colunm);
+
+        $this->view->rs		= $report->fetchAll($page);
+        $this->view->colunms    = $report->getSelectedColunms();
+        $this->view->orders	= $report->getOrders();
+        $this->view->filters    = $report->getFilters();
+        $this->view->aggregates = $report->getAggregates();
+
+        $this->_helper->layout->disableLayout();
+        $this->render('list');
+    }
+
+    public function columnAction() {
+        $report   = new Default_Model_Builder();
+        $colunm   = $this->_getParam('colunm');
+        $page   = Zend_Filter::filterStatic($this->_getParam('page'), 'int');
+
+        $report->addColumn($colunm);
+
+        $this->view->rs		= $report->fetchAll($page);
+        $this->view->colunms    = $report->getSelectedColunms();
+        $this->view->orders	= $report->getOrders();
+        $this->view->filters    = $report->getFilters();
+        $this->view->aggregates = $report->getAggregates();
+
+        $this->_helper->layout->disableLayout();
+        $this->render('list');
+    }
+}

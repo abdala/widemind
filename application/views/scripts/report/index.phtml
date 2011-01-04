@@ -1,0 +1,37 @@
+<div class="padding">
+    <h3><?php echo $this->translate('Relatórios salvos');?></h3>
+    <table class="tablesorter">
+        <thead>
+            <tr>
+                <th><?php echo $this->translate('Nome');?></th>
+                <th><?php echo $this->translate('Identificador');?></th>
+                <th><?php echo $this->translate('Data de Criação');?></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($this->data as $key => $data):?>
+                <tr class="<?php echo ($key%2)?'even':'odd';?>">
+                    <td>
+                        <a href="report/load/id/<?php echo $data->id; ?>">
+                            <?php echo $data->name; ?>
+                        </a>
+                    </td>
+                    <td><?php echo $data->alias; ?></td>
+                    <td><?php echo date('d/m/Y', strtotime($data->created)); ?></td>
+                    <td>
+                        <a href="report/form/id/<?php echo $data->id; ?>"><?php echo $this->translate('Editar')?></a>
+                        <a href="report/delete/id/<?php echo $data->id; ?>" class="delete"><?php echo $this->translate('Excluir')?></a>
+                    </td>
+                </tr>
+            <?php endforeach;?>
+        </tbody>
+    </table>
+</div>
+<script>
+    $('.delete').click(function(){
+        if(!confirm('<?php echo $this->translate('Deseja realmente excluir?');?>')){
+            return false;
+        }
+    });
+</script>

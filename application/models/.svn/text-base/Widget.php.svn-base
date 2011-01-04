@@ -1,0 +1,6 @@
+<?php
+class Default_Model_Widget extends Xend_Db_Table
+{
+    protected $_name    = 'widget';
+    protected $_primary = 'id';
+}

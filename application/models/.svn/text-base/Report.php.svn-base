@@ -1,0 +1,30 @@
+<?php
+class Default_Model_Report extends Xend_Db_Table
+{
+    protected $_name   = 'report';
+    protected $_primary = 'id';
+
+    public function _save()
+    {
+        $session = new Zend_Session_Namespace('report');        
+        if (!$this->_data['Default_Model_Report']['id']) {
+            $this->_data['Default_Model_Report']['data'] = serialize($_SESSION['report']);
+        }
+    }
+
+    public function _postSave()
+    {
+        $groups      = $this->_data['Default_Model_GroupReport']['group_id'];
+        $groupReport = new Default_Model_GroupReport();
+        $report_id   = $this->_data['Default_Model_Report']['id'];
+        
+        $groupReport->delete(array('report_id' => $report_id));
+        
+        foreach ($groups as $group){
+            $row = $groupReport->createRow();
+            $row->group_id  = $group;
+            $row->report_id = $report_id;
+            $row->save();
+        }
+    }
+}

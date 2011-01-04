@@ -1,0 +1,69 @@
+[production]
+;config ini set
+phpSettings.display_startup_errors = 0
+phpSettings.display_errors = 0
+phpSettings.session.cache_expire = 60
+phpSettings.session.cookie_httponly = true
+phpSettings.session.use_only_cookie = true
+phpSettings.default_charset = "UTF-8"
+
+autoloadernamespaces[] = "Xend_"
+autoloadernamespaces[] = "Preceptor_"
+
+bootstrap.path = APPLICATION_PATH "/Bootstrap.php"
+bootstrap.class = "Bootstrap"
+
+resources.view.encoding = "UTF-8"
+resources.view.helperPath.Xend_View_Helper = "Xend/View/Helper"
+resources.view.filterPath.Xend_View_Filter = "Xend/View/Filter"
+
+resources.layout.layoutPath = APPLICATION_PATH "/views/layouts/scripts/"
+
+;config controller
+resources.frontController.controllerDirectory = APPLICATION_PATH "/controllers"
+resources.frontController.moduleDirectory = APPLICATION_PATH "/../modules"
+resources.frontController.env = APPLICATION_ENV
+
+;config modules
+resources.modules =
+
+;config locale
+resources.locale.default = "pt_BR"
+
+;config translate
+resources.translate.locale = "pt_BR"
+resources.translate.adapter = csv
+resources.translate.data = APPLICATION_PATH "/../data/i18n/lang.pt_BR"
+resources.translate.options.delimiter = "="
+
+;config db
+resources.db.adapter = PDO_Mysql
+resources.db.params.username = root
+resources.db.params.dbname = report
+resources.db.params.password =
+resources.db.params.host = localhost
+resources.db.params.charset = "utf8"
+
+[staging : production]
+
+[testing : production]
+phpSettings.display_startup_errors = 1
+phpSettings.display_errors = 1
+
+[development : production]
+phpSettings.display_startup_errors = 1
+phpSettings.display_errors = 1
+
+[report]
+db.adapter = PDO_Mysql
+db.params.username = root
+db.params.dbname = gaterlist
+db.params.password =
+db.params.host = localhost
+db.params.charset = "utf8"
+
+;db.adapter = PDO_Pgsql
+;db.params.username = postgres
+;db.params.dbname = preceptor_server
+;db.params.password = 123456
+;db.params.host = localhost

@@ -1,0 +1,62 @@
+<div class="item">
+    <div class="hd">
+        <a href="report/load/id/<?php echo $this->data->id?>" target="_blank">
+            <?php echo $this->data->name?>
+        </a>
+    </div>
+    <div class="bd">
+        <table class="tablesorter" id="table_<?php echo $this->widget->id?>">
+            <thead>
+                <tr>
+                    <?php foreach ($this->colunms as $key => $colunm):?>
+                        <?php
+                        $order = null;
+                        foreach ($this->orders as $order) {
+                            if($order['colunm'] == $colunm) {
+                                $order = $order['direction'] == 'ASC' ? 'headerSortUp': 'headerSortDown';
+                            }
+                        }
+                        ?>
+                        <?php if($key == 0):?>
+                            <td style="background: #eee;">
+                                <?php echo $colunm;?>
+                                <input type="hidden" value="<?php echo $colunm?>" />
+                            </td>
+                        <?php else: ?>
+                            <th class="header <?php echo $order;?>">
+                                <?php echo substr($colunm, 0, 20).'...';?>
+                                <input type="hidden" value="<?php echo $colunm?>" />
+                            </th>
+                        <?php endif; ?>
+                    <?php endforeach;?>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($this->rs as $key => $rs):?>
+                    <tr class="<?php echo $this->changeClass($key, array('even', 'odd'));?>">
+                        <?php foreach ($rs as $column):?>
+                            <?php if(is_numeric($column)) :?>
+                                <td><?php echo $column;?></td>
+                            <?php else: ?>
+                                <th><?php echo $column;?></th>
+                            <?php endif; ?>
+                        <?php endforeach;?>
+                    </tr>
+                <?php endforeach;?>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript">
+    var colors = ['#FDB813','#666699','#92d5ea','#ee8310','#8d10ee','#5a3b16','#B96A9A','#f45a90','#e9e744','#F68B1F','#62C2CC','#26a4ed'];
+
+    
+    <?php if ($this->widget->type != 'list'):?>
+        $('#table_<?php echo $this->widget->id?>').visualize({type: '<?php echo $this->widget->type?>', height: '290px', width: '290px', colors: colors});
+        $('#table_<?php echo $this->widget->id?>').hide();
+        $('.visualize-pie').show()
+                           .css('margin', '15px 0 0 0')
+                           .css('border', 'none')
+                           .css('background', 'none');
+    <?php endif;?>
+</script>

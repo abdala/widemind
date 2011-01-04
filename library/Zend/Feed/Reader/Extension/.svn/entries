@@ -1,0 +1,119 @@
+10
+
+dir
+0
+https://svn.webservidor.net/rs22605-preceptoread/report/trunk/library/Zend/Feed/Reader/Extension
+https://svn.webservidor.net/rs22605-preceptoread
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+b4c260d5-4b54-4cfa-9694-bc14fe182950
+
+Atom
+dir
+
+
+
+add
+
+Syndication
+dir
+
+
+
+add
+
+DublinCore
+dir
+
+
+
+add
+
+Thread
+dir
+
+
+
+add
+
+Slash
+dir
+
+
+
+add
+
+Content
+dir
+
+
+
+add
+
+EntryAbstract.php
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+Podcast
+dir
+
+
+
+add
+
+FeedAbstract.php
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+WellFormedWeb
+dir
+
+
+
+add
+
+CreativeCommons
+dir
+
+
+
+add
+

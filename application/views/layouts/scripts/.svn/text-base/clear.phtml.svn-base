@@ -1,0 +1,27 @@
+<?php echo $this->doctype();?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <base href="<?php echo $this->serverUrl()?><?php echo $this->baseUrl()?>/" />
+  <title>Relatório</title>
+
+  <?php echo $this->headLink()
+				  ->appendStylesheet(URL_JAVASCRIPT_LIBRARY.'yahoo/reset-fonts-grids/reset-fonts-grids.css')
+                  ->appendStylesheet(URL_JAVASCRIPT_LIBRARY."jquery/tablesorter/themes/blue/style.css")
+				  ->appendStylesheet(URL_JAVASCRIPT_LIBRARY."jquery/visualize/jquery.visualize.css")
+		          ->appendStylesheet('css/utils.css')
+				  ->appendStylesheet('css/main.css'); ?>
+
+  <?php echo $this->headScript()
+				  ->appendFile(URL_JAVASCRIPT_LIBRARY.'jquery/jquery.js')
+                  ->appendFile(URL_JAVASCRIPT_LIBRARY."jquery/visualize/jquery.visualize.js")
+                  ->appendFile(URL_JAVASCRIPT_LIBRARY."jquery/visualize/excanvas.compiled.js"); ?>
+</head>
+<body>
+    <div id="hd"></div>
+    <div id="bd" class="padding">
+        <?=$this->layout()->content?>
+    </div>
+    <div id="ft"></div>
+</body>
+</html>

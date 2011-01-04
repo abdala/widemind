@@ -1,0 +1,10 @@
+<div class="form padding">
+    <form action="role/save" method="post">
+        <input type="hidden" name="data[Default_Model_Role][id]" value="<?php echo $this->data->id?>" />
+
+        <label><?php echo $this->translate('Nome')?>:</label>
+        <input type="text" name="data[Default_Model_Role][name]" value="<?php echo $this->data->name?>" />
+
+        <input type="submit" value="Enviar" />
+</form>
+</div>

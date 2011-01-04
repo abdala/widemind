@@ -1,0 +1,112 @@
+10
+
+dir
+0
+https://svn.webservidor.net/rs22605-preceptoread/report/trunk/library/Zend/Tool/Framework
+https://svn.webservidor.net/rs22605-preceptoread
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+b4c260d5-4b54-4cfa-9694-bc14fe182950
+
+Metadata
+dir
+
+
+
+add
+
+System
+dir
+
+
+
+add
+
+Exception.php
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+Loader
+dir
+
+
+
+add
+
+Manifest
+dir
+
+
+
+add
+
+Registry
+dir
+
+
+
+add
+
+Provider
+dir
+
+
+
+add
+
+Action
+dir
+
+
+
+add
+
+Client
+dir
+
+
+
+add
+
+Registry.php
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+

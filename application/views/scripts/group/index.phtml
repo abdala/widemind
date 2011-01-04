@@ -1,0 +1,32 @@
+<div class="padding">
+    <div class="right">
+        <a href="role/form"><?php echo $this->translate('Novo')?></a>
+    </div>
+    <h3><?php echo $this->translate('Perfis');?></h3>
+    <table class="tablesorter">
+        <thead>
+            <tr>
+                <th><?php echo $this->translate('Nome');?></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($this->data as $key => $data):?>
+                <tr class="<?php echo $this->changeClass($key, array('even', 'odd'));?>">
+                    <td><?php echo $data->name; ?></td>
+                    <td>
+                        <a href="role/form/id/<?php echo $data->id; ?>"><?php echo $this->translate('Editar')?></a>
+                        <a href="role/delete/id/<?php echo $data->id; ?>" class="delete"><?php echo $this->translate('Excluir')?></a>
+                    </td>
+                </tr>
+            <?php endforeach;?>
+        </tbody>
+    </table>
+</div>
+<script>
+    $('.delete').click(function(){
+        if(!confirm('<?php echo $this->translate('Deseja realmente excluir?');?>')){
+            return false;
+        }
+    });
+</script>

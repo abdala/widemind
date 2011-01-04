@@ -1,0 +1,38 @@
+<?php echo $this->doctype("XHTML1_STRICT");?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Relatório</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <base href="<?php echo $this->serverUrl()?><?php echo $this->baseUrl()?>/" />
+  
+  <?php echo $this->headLink()
+				  ->appendStylesheet('js/yahoo/reset-fonts-grids/reset-fonts-grids.css')
+				  ->appendStylesheet("js/jquery/tablesorter/themes/blue/style.css")
+				  ->appendStylesheet("js/jquery/visualize/jquery.visualize.css")
+		          ->appendStylesheet('css/utils.css')
+				  ->appendStylesheet('css/main.css'); ?>
+
+  <?php echo $this->headScript()
+				  ->appendFile('js/jquery/jquery.js')
+                  ->appendFile("js/jquery/visualize/jquery.visualize.js")
+                  ->appendFile("js/jquery/visualize/excanvas.compiled.js")
+				  ->appendFile('js/report.js'); ?>
+</head>
+<body>
+    <div id="hd"></div>
+    <div id="menu">
+        <ul>
+            <li><a href="index"><?php echo $this->translate('Construtor'); ?></a></li>
+            <li><a href="report"><?php echo $this->translate('Relátorios'); ?></a></li>
+            <li><a href="group"><?php echo $this->translate('Grupos'); ?></a></li>
+        </ul>
+    </div>
+    <div id="bd">
+        <?=$this->layout()->content?>
+    </div>
+    <div id="ft"></div>
+    <script type="text/javascript">
+        $('.rename_editable').dblclick(function(){alert('aaa')});
+    </script>
+</body>
+</html>

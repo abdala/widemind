@@ -1,0 +1,105 @@
+10
+
+dir
+0
+https://svn.webservidor.net/rs22605-preceptoread/report/trunk/library/Zend/Service/DeveloperGarden/Request
+https://svn.webservidor.net/rs22605-preceptoread
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+b4c260d5-4b54-4cfa-9694-bc14fe182950
+
+LocalSearch
+dir
+
+
+
+add
+
+IpLocation
+dir
+
+
+
+add
+
+RequestAbstract.php
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+ConferenceCall
+dir
+
+
+
+add
+
+VoiceButler
+dir
+
+
+
+add
+
+Exception.php
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+BaseUserService
+dir
+
+
+
+add
+
+SendSms
+dir
+
+
+
+add
+
+SmsValidation
+dir
+
+
+
+add
+
